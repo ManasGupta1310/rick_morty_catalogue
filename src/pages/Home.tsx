@@ -59,8 +59,16 @@ function Home() {
                   label="Search for a location.."
                   value={searchKey}
                   onChange={(event) => setSearchKey(event.target.value)}
+                  InputLabelProps={{
+                    sx: {
+                      color: 'white',
+                    },
+                  }}
                   sx={{
-                    width: 150, marginLeft: 1, color: '#ffffff', backgroundColor: '#3c3e44',
+                    width: 150,
+                    marginLeft: 1,
+                    backgroundColor: '#3c3e44',
+                    input: { color: 'white' },
                   }}
                 />
               </div>

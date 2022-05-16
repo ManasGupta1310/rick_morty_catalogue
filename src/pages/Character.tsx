@@ -8,8 +8,7 @@ import useStore from '../stateStore/store';
 import './Character.css';
 
 function Character() {
-  const character = useStore((state:any) => state.character);
-  const getCharacter = useStore((state:any) => state.getCharacter);
+  const { character, getCharacter } = useStore((state:any) => state);
   const { id } = useParams();
   useEffect(() => {
     document.title = `${character.name} - Rick and Morty`;
