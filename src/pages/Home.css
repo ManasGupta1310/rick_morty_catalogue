@@ -24,15 +24,15 @@
 
 .filter{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
+    width: 70%;
 }
 
 .filterParam{
     display: grid;
     width: 100%;
-    /* flex-direction: row; */
     grid-template-columns: 50% 50%;
     justify-items: flex-start;
     align-items: center;
@@ -41,5 +41,12 @@
 @media(max-width: 400px){
     .locationCards{
         width: 90%;
+    }
+}
+
+@media(max-width: 1400px){
+    .filter{
+        flex-direction: column;
+        width:325px;
     }
 }
