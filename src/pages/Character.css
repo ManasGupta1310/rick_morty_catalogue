@@ -12,9 +12,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 80%;
+    margin: 20px auto;
 }
 
 .stats{
+    margin-top: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;

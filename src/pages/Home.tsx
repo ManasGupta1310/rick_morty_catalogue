@@ -11,7 +11,7 @@ import LocationCard from '../components/cards/locationCard';
 import useStore from '../stateStore/store';
 
 function Home() {
-  const { locations, getLocations, locationLoad } = useStore((state:any) => state);
+  const { locations, getLocations, locationsLoad } = useStore((state:any) => state);
   // const [options, setOptions] = useState(['']);
   // const [type, setType] = React.useState('');
   // const [filterdResult, setResults] = useState({ results: [{ name: '', url: '', id: '' }] });
@@ -40,7 +40,7 @@ function Home() {
 
   return (
     <div className="home">
-      {locationLoad
+      {locationsLoad
         ? (
           <div className="homeContent">
             <h1>Rick and Morty Locations</h1>
@@ -74,7 +74,7 @@ function Home() {
           </div>
         )
         : (
-          <div className="locationLoad">
+          <div className="locationsLoad">
             <CircularProgress />
           </div>
         )}
