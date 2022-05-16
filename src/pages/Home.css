@@ -1,0 +1,34 @@
+.homeContent{
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.locationCards{
+    margin: 20px 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    width: 80%;
+    grid-gap: 15px;
+}
+
+.locationLoad{
+    margin: 20px auto;
+    height: 100px;
+    width: 100px;
+    padding: 100px;
+}
+
+.filter{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+@media(max-width: 400px){
+    .locationCards{
+        width: 94%;
+    }
+}

@@ -1,0 +1,31 @@
+.location{
+    margin: 20px auto;
+}
+
+.residents{
+    margin: 20px 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    width: 80%;
+    grid-gap: 15px;
+}
+
+.locationInfo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.locationLoad{
+    margin: 20px auto;
+    height: 100px;
+    width: 100px;
+    padding: 100px;
+}
+
+@media(max-width: 400px){
+    .residents{
+        width: 94%;
+    }
+}

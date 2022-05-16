@@ -1,0 +1,44 @@
+.characterInfo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    padding: 20px 0px;
+}
+
+.characterContent{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.stats{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.statsLine{
+    display: grid;
+    width: 100%;
+    grid-template-columns: 60% 50%;
+    justify-self: center;
+    align-items: center;
+}
+
+.statHeading{
+    display: flex;
+    flex-direction: row;
+    justify-self: flex-start;
+    align-items: center;
+}
+
+.statValue{
+    display: flex;
+    flex-direction: row;
+    justify-self: flex-end;
+    align-items: center;
+}

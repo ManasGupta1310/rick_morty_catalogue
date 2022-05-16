@@ -1,0 +1,23 @@
+.characterContent{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.characterLine{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px;
+}
+
+.characterTile{
+    display:grid;
+    grid-template-columns: 55% 40%;
+}
+
+.characterImage img{
+    border-radius: 50%;
+}
