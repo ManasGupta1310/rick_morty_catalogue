@@ -14,13 +14,11 @@ function LocationCard({ location }: any) {
               <div className="value" style={{ fontSize: 20, fontWeight: 600, fontStyle: 'italic' }}>{location.name}</div>
             </div>
             <div className="locationLine">
-              <div className="heading"><b>Type: </b></div>
-              {' '}
+              <div className="heading"><b>Type:</b></div>
               <div className="value">{location.type}</div>
             </div>
             <div className="locationLine">
-              <div className="heading"><b>Dimension: </b></div>
-              {' '}
+              <div className="heading"><b>Dimension:</b></div>
               <div className="value">{location.dimension}</div>
             </div>
           </div>

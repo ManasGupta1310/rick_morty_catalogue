@@ -3,6 +3,7 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
+    padding: 0px 20px;
 }
 
 .characterLine{
@@ -16,6 +17,8 @@
 .characterTile{
     display:grid;
     grid-template-columns: 55% 40%;
+    align-items: center;
+    justify-items: center;
 }
 
 .characterImage img{

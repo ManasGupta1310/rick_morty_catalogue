@@ -16,7 +16,10 @@ function CharacterCard({ resident }: any) {
       .then((res) => setInfo(res.data));
   }, [setInfo, resident]);
   return (
-    <Card sx={{ width: 350, minHeight: 150 }}>
+    <Card sx={{
+      width: 350, minHeight: 225, display: 'flex', justifyContent: 'center', alignItems: 'center',
+    }}
+    >
       <CardContent>
         <Typography sx={{ fontSize: 18 }} color="text.secondary">
           <div className="characterTile">

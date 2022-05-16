@@ -20,7 +20,7 @@ function Character() {
       <Card sx={{ width: 300 }}>
         <div className="characterContent">
           <div>
-            <Avatar src={character.image} alt={character.name} sx={{ height: 100, width: 100 }} />
+            <Avatar src={character.image} alt={character.name} sx={{ height: 150, width: 150 }} />
           </div>
           <Typography variant="h5" color="text.primary">
             {character.name}
