@@ -8,14 +8,14 @@ function DropDown({
   value, options, setValue, label,
 }:any) {
   return (
-    <FormControl sx={{ m: 1, width: 150 }} size="small">
-      <InputLabel id="demo-select-small">{label}</InputLabel>
+    <FormControl sx={{ m: 1, width: 150, color: 'white' }} size="small">
+      <InputLabel sx={{ color: 'white' }}>{label}</InputLabel>
       <Select
-        labelId="demo-select-small"
-        id="demo-select-small"
+        variant="filled"
         value={value}
         label={label}
         onChange={(event: SelectChangeEvent) => setValue(event.target.value)}
+        sx={{ color: 'white', backgroundColor: '#3c3e44' }}
       >
         <MenuItem value="">
           <em>None</em>

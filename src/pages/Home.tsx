@@ -59,7 +59,9 @@ function Home() {
                   label="Search for a location.."
                   value={searchKey}
                   onChange={(event) => setSearchKey(event.target.value)}
-                  sx={{ width: 150, marginLeft: 1 }}
+                  sx={{
+                    width: 150, marginLeft: 1, color: '#ffffff', backgroundColor: '#3c3e44',
+                  }}
                 />
               </div>
               <div className="filterParam">

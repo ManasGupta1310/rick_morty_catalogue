@@ -6,19 +6,22 @@ import './locationCard.css';
 
 function LocationCard({ location }: any) {
   return (
-    <Card sx={{ width: 350, minHeight: 150 }}>
+    <Card sx={{
+      width: 350, minHeight: 150, backgroundColor: '#3c3e44', borderRadius: 5,
+    }}
+    >
       <CardContent>
-        <Typography sx={{ fontSize: 18 }} color="text.secondary">
+        <Typography sx={{ fontSize: 18, color: '#ffffff' }} color="text.secondary">
           <div className="locationContent">
             <div className="locationLine">
               <div className="value" style={{ fontSize: 20, fontWeight: 600, fontStyle: 'italic' }}>{location.name}</div>
             </div>
             <div className="locationLine">
-              <div className="heading"><b>Type:</b></div>
+              <div className="heading" style={{ color: '#9e9e9e' }}><b>Type:</b></div>
               <div className="value">{location.type}</div>
             </div>
             <div className="locationLine">
-              <div className="heading"><b>Dimension:</b></div>
+              <div className="heading" style={{ color: '#9e9e9e' }}><b>Dimension:</b></div>
               <div className="value">{location.dimension}</div>
             </div>
           </div>
