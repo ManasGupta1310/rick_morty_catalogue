@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Header from './components/header';
 import Location from './pages/Location';
 import Character from './pages/Character';
+import PageNotFound from './pages/PageNotFound';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/location/:id" element={<Location />} />
           <Route path="/character/:id" element={<Character />} />
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
       </BrowserRouter>
     </div>

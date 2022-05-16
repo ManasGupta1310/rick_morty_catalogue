@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import LocationCard from '../components/cards/locationCard';
 import useStore from '../stateStore/store';
 import DropDown from '../components/dropdown';
+import filter from '../components/filter';
 
 function Home() {
   const { locations, getLocations, locationsLoad } = useStore((state:any) => state);
@@ -29,20 +30,7 @@ function Home() {
     setOptionsTypes(Array.from(optionTypes));
     setOptionsDim(Array.from(optionDimensions));
 
-    let filtered = locations;
-    if (type !== '') {
-      filtered = filtered.filter((location:any) => location.type === type);
-    }
-
-    if (dimensions !== '') {
-      filtered = filtered.filter((location:any) => location.dimension === dimensions);
-    }
-
-    if (searchKey !== '') {
-      filtered = filtered
-        .filter((location:any) => location.name.toLowerCase().includes(searchKey.toLowerCase()));
-    }
-    setFilteredResults(filtered);
+    setFilteredResults(filter(locations, type, dimensions, searchKey));
   }, [getLocations, locations, type, dimensions, searchKey]);
 
   return (
