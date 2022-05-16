@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { CircularProgress } from '@mui/material';
+import { CircularProgress, TextField } from '@mui/material';
 import './Home.css';
 import { Link } from 'react-router-dom';
 import LocationCard from '../components/cards/locationCard';
@@ -13,6 +13,7 @@ function Home() {
   const [type, setType] = useState('');
   const [optionsDim, setOptionsDim] = useState(['']);
   const [dimensions, setDimensions] = useState('');
+  const [searchKey, setSearchKey] = useState('');
   const [filterdResult, setFilteredResults] = useState([]);
 
   useEffect(() => {
@@ -37,8 +38,12 @@ function Home() {
       filtered = filtered.filter((location:any) => location.dimension === dimensions);
     }
 
+    if (searchKey !== '') {
+      filtered = filtered
+        .filter((location:any) => location.name.toLowerCase().includes(searchKey.toLowerCase()));
+    }
     setFilteredResults(filtered);
-  }, [getLocations, locations, type, dimensions]);
+  }, [getLocations, locations, type, dimensions, searchKey]);
 
   return (
     <div className="home">
@@ -47,6 +52,16 @@ function Home() {
           <div className="homeContent">
             <h1>Rick and Morty Locations</h1>
             <div className="filter">
+              <div className="filterParam">
+                <h4>Search:</h4>
+                <TextField
+                  variant="outlined"
+                  label="Search for a location.."
+                  value={searchKey}
+                  onChange={(event) => setSearchKey(event.target.value)}
+                  sx={{ width: 150, marginLeft: 1 }}
+                />
+              </div>
               <div className="filterParam">
                 <h4>Filter by Type:</h4>
                 <DropDown value={type} setValue={setType} options={optionsTypes} label="Types" />
