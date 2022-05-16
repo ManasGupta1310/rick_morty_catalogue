@@ -1,42 +1,44 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { CircularProgress } from '@mui/material';
 import './Home.css';
-// import axios from 'axios';
 import { Link } from 'react-router-dom';
-// import InputLabel from '@mui/material/InputLabel';
-// import MenuItem from '@mui/material/MenuItem';
-// import FormControl from '@mui/material/FormControl';
-// import Select, { SelectChangeEvent } from '@mui/material/Select';
 import LocationCard from '../components/cards/locationCard';
 import useStore from '../stateStore/store';
+import DropDown from '../components/dropdown';
 
 function Home() {
   const { locations, getLocations, locationsLoad } = useStore((state:any) => state);
-  // const [options, setOptions] = useState(['']);
-  // const [type, setType] = React.useState('');
-  // const [filterdResult, setResults] = useState({ results: [{ name: '', url: '', id: '' }] });
 
-  // const handleTypeChange = (event: SelectChangeEvent) => {
-  //   setType(event.target.value);
-  //   if (event.target.value !== '') {
-  //     setResults({
-  //       results:
-  //         locations.results.filter((location:any) => location.type === event.target.value),
-  //     });
-  //   } else {
-  //     axios
-  //       .get('https://rickandmortyapi.com/api/location')
-  //       .then((res) => {
-  //         setLocations(res.data);
-  //         setResults(res.data);
-  //       });
-  //   }
-  // };
+  const [optionsTypes, setOptionsTypes] = useState(['']);
+  const [type, setType] = useState('');
+  const [optionsDim, setOptionsDim] = useState(['']);
+  const [dimensions, setDimensions] = useState('');
+  const [filterdResult, setFilteredResults] = useState([]);
 
   useEffect(() => {
     document.title = 'Home - Rick and Morty Catalogue';
     getLocations();
-  }, [getLocations]);
+    const optionTypes = new Set<string>();
+    const optionDimensions = new Set<string>();
+
+    locations.forEach((location:any) => {
+      optionTypes.add(location.type);
+      optionDimensions.add(location.dimension);
+    });
+    setOptionsTypes(Array.from(optionTypes));
+    setOptionsDim(Array.from(optionDimensions));
+
+    let filtered = locations;
+    if (type !== '') {
+      filtered = filtered.filter((location:any) => location.type === type);
+    }
+
+    if (dimensions !== '') {
+      filtered = filtered.filter((location:any) => location.dimension === dimensions);
+    }
+
+    setFilteredResults(filtered);
+  }, [getLocations, locations, type, dimensions]);
 
   return (
     <div className="home">
@@ -44,26 +46,18 @@ function Home() {
         ? (
           <div className="homeContent">
             <h1>Rick and Morty Locations</h1>
-            {/* <div className="filter">
-              <h4>Filter by type:</h4>
-              <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
-                <InputLabel id="demo-select-small">Type</InputLabel>
-                <Select
-                  labelId="demo-select-small"
-                  id="demo-select-small"
-                  value={type}
-                  label="Type"
-                  onChange={handleTypeChange}
-                >
-                  <MenuItem value="">
-                    <em>None</em>
-                  </MenuItem>
-                  {options.map((option) => <MenuItem value={option}>{option}</MenuItem>)}
-                </Select>
-              </FormControl>
-            </div> */}
+            <div className="filter">
+              <div className="filterParam">
+                <h4>Filter by Type:</h4>
+                <DropDown value={type} setValue={setType} options={optionsTypes} label="Types" />
+              </div>
+              <div className="filterParam">
+                <h4>Filter by Dimension:</h4>
+                <DropDown value={dimensions} setValue={setDimensions} options={optionsDim} label="Dimensions" />
+              </div>
+            </div>
             <div className="locationCards">
-              {locations.map((location:any) => (
+              {filterdResult.map((location:any) => (
                 <Link to={`/location/${location.id}`} style={{ textDecoration: 'none' }}>
                   <div>
                     <LocationCard location={location} />
