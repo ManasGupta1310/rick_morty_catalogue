@@ -4,8 +4,8 @@ import './Home.css';
 import { Link } from 'react-router-dom';
 import LocationCard from '../components/cards/locationCard';
 import useStore from '../stateStore/store';
-import DropDown from '../components/dropdown';
-import filter from '../components/filter';
+import DropDown from '../components/utils/dropdown';
+import filter from '../components/utils/filter';
 
 function Home() {
   const { locations, getLocations, locationsLoad } = useStore((state:any) => state);
