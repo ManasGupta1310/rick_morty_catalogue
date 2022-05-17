@@ -2,7 +2,7 @@ import axios from 'axios';
 import create from 'zustand';
 
 const useStore = create((set) => ({
-  character: {},
+  character: { origin: { url: '' }, location: { url: '' }, episode: [''] },
   getCharacter: async (id:string) => {
     const { data } = await axios.get(`https://rickandmortyapi.com/api/character/${id}`);
     set({ character: data });

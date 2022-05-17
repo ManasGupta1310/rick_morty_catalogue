@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import Card from '@mui/material/Card';
 import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
@@ -58,6 +58,34 @@ function Character() {
               </Typography>
               <Typography variant="body1" className="statValue">
                 {character.species}
+              </Typography>
+            </div>
+            <div className="statsLine">
+              <Typography variant="body1" color="#9e9e9e" className="statHeading">
+                Origin:
+              </Typography>
+              <Link to={`/location/${character.origin.url.split('/').slice(-1)}`} style={{ textDecoration: 'none', color: 'white' }}>
+                <Typography variant="body1" className="statValue" sx={{ fontWeight: 600, fontStyle: 'italic' }}>
+                  {character.origin.name}
+                </Typography>
+              </Link>
+            </div>
+            <div className="statsLine">
+              <Typography variant="body1" color="#9e9e9e" className="statHeading">
+                Current Location:
+              </Typography>
+              <Link to={`/location/${character.location.url.split('/').slice(-1)}`} style={{ textDecoration: 'none', color: 'white' }}>
+                <Typography variant="body1" className="statValue" sx={{ fontWeight: 600, fontStyle: 'italic' }}>
+                  {character.location.name}
+                </Typography>
+              </Link>
+            </div>
+            <div className="statsLine">
+              <Typography variant="body1" color="#9e9e9e" className="statHeading">
+                No. of Episodes:
+              </Typography>
+              <Typography variant="body1" className="statValue">
+                {character.episode.length}
               </Typography>
             </div>
           </div>

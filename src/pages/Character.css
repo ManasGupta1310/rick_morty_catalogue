@@ -43,6 +43,6 @@
 .statValue{
     display: flex;
     flex-direction: row;
-    justify-self: flex-end;
+    justify-self: flex-start;
     align-items: center;
 }
