@@ -81,7 +81,7 @@ function Home() {
           </div>
         )
         : (
-          <div className="locationsLoad">
+          <div className="locationLoad">
             <CircularProgress />
           </div>
         )}
