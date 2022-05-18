@@ -80,7 +80,7 @@ function Home() {
         </div>
         {locationsLoad
           ? (
-            <div className="locationCards" data-testid="loadedAfterAPI">
+            <div className="locationCards">
               {filterdResult
                 .sort((x, y) => { if (x.name > y.name) return 1; return -1; })
                 .map((location:ILocation) => (
