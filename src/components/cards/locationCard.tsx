@@ -4,7 +4,14 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import './locationCard.css';
 
-function LocationCard({ location }: any) {
+interface Props {
+  location:{
+    name: string;
+    type: string;
+    dimension: string;
+  }
+}
+function LocationCard({ location }: Props) {
   return (
     <Card sx={{
       width: 350, minHeight: 150, backgroundColor: '#3c3e44', borderRadius: 5,

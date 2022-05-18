@@ -6,7 +6,7 @@ import CharacterCard from '../components/cards/characterCard';
 import useStore from '../stateStore/store';
 
 function Location() {
-  const { location, getLocation, locationLoad } = useStore((state:any) => state);
+  const { location, getLocation, locationLoad } = useStore();
   const { id } = useParams();
 
   useEffect(() => {
@@ -22,7 +22,7 @@ function Location() {
             <h1>Rick and Morty Locations</h1>
             <h1 style={{ fontWeight: '300' }}>{location.name}</h1>
             <div className="residents">
-              {location.residents.map((resident:any) => (
+              {location.residents.map((resident:string) => (
                 <Link to={`/character/${resident.split('/').slice(-1)}`} style={{ textDecoration: 'none' }}>
                   <div>
                     <CharacterCard resident={resident} />

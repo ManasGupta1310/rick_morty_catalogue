@@ -7,11 +7,22 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { CircularProgress } from '@mui/material';
 
-function CharacterCard({ resident }: any) {
-  const [residentInfo, setInfo] = useState({
+interface Props {
+  resident:string;
+}
+
+interface StateInt {
+  name: string;
+  status: string;
+  gender:string;
+  image:string;
+}
+
+function CharacterCard({ resident }: Props) {
+  const [residentInfo, setInfo] = useState<StateInt>({
     name: '', status: '', gender: '', image: '',
   });
-  const [loaded, setLoaded] = useState(false);
+  const [loaded, setLoaded] = useState<boolean>(false);
   useEffect(() => {
     axios
       .get(resident)
@@ -20,6 +31,7 @@ function CharacterCard({ resident }: any) {
         setLoaded(true);
       });
   }, [setInfo, resident]);
+
   return (
     <Card sx={{
       width: 350, minHeight: 225, display: 'flex', justifyContent: 'center', alignItems: 'center', backgroundColor: '#3c3e44', borderRadius: 5,

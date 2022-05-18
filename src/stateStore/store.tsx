@@ -1,18 +1,49 @@
 import axios from 'axios';
 import create from 'zustand';
 
-const useStore = create((set) => ({
+interface ILocation {
+  id: string;
+  name: string;
+  type: string;
+  dimension: string;
+  residents: string[];
+}
+interface IState {
   character: {
-    id: '', name: '', gender: '', status: '', origin: { url: '' }, location: { url: '' }, episode: [''],
+    id: string;
+    name: string;
+    status: string;
+    species: string;
+    gender:''
+    origin: {
+      name: string;
+      url: string;
+    }
+    location: {
+      name: string;
+      url: string;
+    }
+    image:string;
+    episode: string[];
+  };
+  getCharacter: (id:any) => void;
+  locations: ILocation[];
+  getLocations: () => void;
+  locationsLoad: boolean;
+  location: ILocation;
+  getLocation: (id:any) => void;
+  locationLoad: boolean;
+}
+const useStore = create<IState>()((set) => ({
+  character: {
+    name: '', id: ' ', gender: '', species: ' ', status: '', origin: { url: '', name: ' ' }, location: { url: '', name: ' ' }, episode: [''], image: '',
   },
   getCharacter: async (id:string) => {
     const { data } = await axios.get(`https://rickandmortyapi.com/api/character/${id}`);
     set({ character: data });
   },
 
-  locations: [{
-    id: '', name: '', type: '', dimension: '', residents: [], url: '',
-  }],
+  locations: [],
   locationsLoad: false,
   getLocations: async () => {
     await axios.get('https://rickandmortyapi.com/api/location')
@@ -48,7 +79,7 @@ const useStore = create((set) => ({
   },
 
   location: {
-    id: '', name: '', type: '', dimension: '', residents: [], url: '',
+    id: ' ', name: '', type: '', dimension: '', residents: [''],
   },
   locationLoad: false,
   getLocation: async (id:string) => {

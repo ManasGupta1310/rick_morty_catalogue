@@ -7,8 +7,16 @@ import useStore from '../stateStore/store';
 import DropDown from '../components/utils/dropdown';
 import filter from '../components/utils/filter';
 
+interface ILocation {
+  id:string;
+  name: string;
+  type: string;
+  dimension: string;
+  residents: string[];
+}
+
 function Home() {
-  const { locations, getLocations, locationsLoad } = useStore((state:any) => state);
+  const { locations, getLocations, locationsLoad } = useStore();
 
   const [optionsTypes, setOptionsTypes] = useState(['']);
   const [type, setType] = useState('');
@@ -23,7 +31,7 @@ function Home() {
     const optionTypes = new Set<string>();
     const optionDimensions = new Set<string>();
 
-    locations.forEach((location:any) => {
+    locations.forEach((location:ILocation) => {
       optionTypes.add(location.type);
       optionDimensions.add(location.dimension);
     });
@@ -71,7 +79,7 @@ function Home() {
         {locationsLoad
           ? (
             <div className="locationCards" data-testid="loadedAfterAPI">
-              {filterdResult.map((location:any) => (
+              {filterdResult.map((location:ILocation) => (
                 <Link to={`/location/${location.id}`} style={{ textDecoration: 'none' }}>
                   <div>
                     <LocationCard location={location} />
