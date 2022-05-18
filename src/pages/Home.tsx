@@ -69,11 +69,11 @@ function Home() {
           </div>
           <div className="filterParam">
             <h4>Filter by Type:</h4>
-            <DropDown value={type} setValue={setType} options={optionsTypes} label="Types" />
+            <DropDown value={type} setValue={setType} options={optionsTypes.sort()} label="Types" />
           </div>
           <div className="filterParam">
             <h4>Filter by Dimension:</h4>
-            <DropDown value={dimensions} setValue={setDimensions} options={optionsDim} label="Dimensions" />
+            <DropDown value={dimensions} setValue={setDimensions} options={optionsDim.sort()} label="Dimensions" />
           </div>
         </div>
         {locationsLoad
