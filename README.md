@@ -1,17 +1,17 @@
 # Rick and Morty Catalogue
 This application is a catalogue for locations of the famous cartoon show Rick and Morty. The application is a SPA (Single Page Application) made on React framework with TypeScript using the [Rick and Morty API](https://rickandmortyapi.com/)
-
+The application is deployed on heroku [here](http://rickmorty-catalogue.herokuapp.com/)
 <p align="center">
 <img src="https://www.freepnglogos.com/uploads/rick-and-morty-png/rick-and-morty-portal-moon-mod-download-35.png" width="200" alt="rick and morty portal moon mod download"/>
 </p>
 
 ## Table of Content
-- [Framework and libraries](https://github.com/ManasGupta1310/rick_morty_catalogue/edit/main/README.md#framework-and-libraries)
-- [User features of application](https://github.com/ManasGupta1310/rick_morty_catalogue/edit/main/README.md#user-features-of-the-appication)
-- [System features of application](https://github.com/ManasGupta1310/rick_morty_catalogue/edit/main/README.md#system-features-of-the-application)
-- [Filter Results Flow](https://github.com/ManasGupta1310/rick_morty_catalogue/edit/main/README.md#filter-results-flow)
-- [Zustand Flow](https://github.com/ManasGupta1310/rick_morty_catalogue/edit/main/README.md#zustand-flow)
-- [Axios Requests](https://github.com/ManasGupta1310/rick_morty_catalogue/edit/main/README.md#axios-requests)
+- [Framework and libraries](https://github.com/ManasGupta1310/rick_morty_catalogue#framework-and-libraries)
+- [User features of application](https://github.com/ManasGupta1310/rick_morty_catalogue#user-features-of-the-appication)
+- [System features of application](https://github.com/ManasGupta1310/rick_morty_catalogue#system-features-of-the-application)
+- [Filter Results Flow](https://github.com/ManasGupta1310/rick_morty_catalogue#filter-results-flow)
+- [Zustand Flow](https://github.com/ManasGupta1310/rick_morty_catalogue#zustand-flow)
+- [Axios Requests](https://github.com/ManasGupta1310/rick_morty_catalogue#axios-requests)
 
 
 ## Framework and libraries
