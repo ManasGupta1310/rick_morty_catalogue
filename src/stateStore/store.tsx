@@ -14,7 +14,7 @@ interface IState {
     name: string;
     status: string;
     species: string;
-    gender:''
+    gender:string;
     origin: {
       name: string;
       url: string;
@@ -36,7 +36,7 @@ interface IState {
 }
 const useStore = create<IState>()((set) => ({
   character: {
-    name: '', id: ' ', gender: '', species: ' ', status: '', origin: { url: '', name: ' ' }, location: { url: '', name: ' ' }, episode: [''], image: '',
+    name: '', id: '', gender: '', species: '', status: '', origin: { url: '', name: '' }, location: { url: '', name: '' }, episode: [''], image: '',
   },
   getCharacter: async (id:string) => {
     const { data } = await axios.get(`https://rickandmortyapi.com/api/character/${id}`);
