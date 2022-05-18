@@ -1,6 +1,5 @@
 # Rick and Morty Catalogue
-This application is a catalogue for locations of the famous cartoon show Rick and Morty. The application is a SPA (Single Page Application) made on React framework with TypeScript using the [Rick and Morty API](https://rickandmortyapi.com/)
-The application is deployed on heroku [here](http://rickmorty-catalogue.herokuapp.com/)
+This application is a catalogue for locations of the famous cartoon show Rick and Morty. The application is a SPA (Single Page Application) made on React framework with TypeScript using the [Rick and Morty API](https://rickandmortyapi.com/). The application is deployed on heroku [here](http://rickmorty-catalogue.herokuapp.com/)
 <p align="center">
 <img src="https://www.freepnglogos.com/uploads/rick-and-morty-png/rick-and-morty-portal-moon-mod-download-35.png" width="200" alt="rick and morty portal moon mod download"/>
 </p>
@@ -12,7 +11,7 @@ The application is deployed on heroku [here](http://rickmorty-catalogue.herokuap
 - [Filter Results Flow](https://github.com/ManasGupta1310/rick_morty_catalogue#filter-results-flow)
 - [Zustand Flow](https://github.com/ManasGupta1310/rick_morty_catalogue#zustand-flow)
 - [Axios Requests](https://github.com/ManasGupta1310/rick_morty_catalogue#axios-requests)
-
+- [Deployment on Heroku](https://github.com/ManasGupta1310/rick_morty_catalogue#deployment-on-heroku)
 
 ## Framework and libraries
 The application uses the following frameworks and libraries:
@@ -88,3 +87,8 @@ Using axios,
 - for getting locations  we make request to the [Rick and Morty locations API](https://rickandmortyapi.com/api/location). Since the API for the locations is paginated, we iterate through all the pages (for eg.https://rickandmortyapi.com/api/location?page=2) and first store all the locations in one sinfgle array then set locations state to that array.
 - for getting a single location we make request to the locations API with id as a parameter (for eg. https://rickandmortyapi.com/api/location/1 returns location with id 1).
 - for getting character info we make request to the character API with id as a parameter (for eg. https://rickandmortyapi.com/api/character/1 returns character with id 1)
+
+## Deployment on heroku
+The application has been deployed on heroku using the React buildpack. Due to some problem with heroku, the application may load a bit slower and sometimes throws an application error. In such case please reload the application website. 
+<br>
+The deployed application can be found [here](http://rickmorty-catalogue.herokuapp.com)
