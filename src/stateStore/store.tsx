@@ -58,10 +58,7 @@ const useStore = create<IState>()((set) => ({
           .get(url)
           .then((res) => ({
             data: res.data,
-          }))
-          .catch((err) => {
-            console.log(err);
-          });
+          }));
 
         const getAllData = (links:any) => Promise.all(links.map(fetchData));
 
@@ -71,9 +68,6 @@ const useStore = create<IState>()((set) => ({
             res.map((rs) => loc.push(...rs.data.results));
             set({ locations: loc });
             set({ locationsLoad: true });
-          })
-          .catch((e) => {
-            console.log(e);
           });
       });
   },

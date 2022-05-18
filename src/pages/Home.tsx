@@ -23,7 +23,9 @@ function Home() {
   const [optionsDim, setOptionsDim] = useState(['']);
   const [dimensions, setDimensions] = useState('');
   const [searchKey, setSearchKey] = useState('');
-  const [filterdResult, setFilteredResults] = useState([]);
+  const [filterdResult, setFilteredResults] = useState([{
+    id: '', name: '', type: '', dimension: '', residents: [],
+  }]);
 
   useEffect(() => {
     document.title = 'Home - Rick and Morty Catalogue';
@@ -79,13 +81,15 @@ function Home() {
         {locationsLoad
           ? (
             <div className="locationCards" data-testid="loadedAfterAPI">
-              {filterdResult.map((location:ILocation) => (
-                <Link to={`/location/${location.id}`} style={{ textDecoration: 'none' }}>
-                  <div>
-                    <LocationCard location={location} />
-                  </div>
-                </Link>
-              ))}
+              {filterdResult
+                .sort((x, y) => { if (x.name > y.name) return 1; return -1; })
+                .map((location:ILocation) => (
+                  <Link to={`/location/${location.id}`} style={{ textDecoration: 'none' }}>
+                    <div>
+                      <LocationCard location={location} />
+                    </div>
+                  </Link>
+                ))}
             </div>
           )
           : (
