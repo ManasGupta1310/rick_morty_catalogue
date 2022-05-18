@@ -78,7 +78,7 @@ The applications filters the locations displayed on basis of type, dimension and
 ## Zustand Flow
 - Gets locations from the [Rick and Morty locations API](https://rickandmortyapi.com/api/location) and loops through all the pages using the <b>getLocations()</b> function in Zustand store and stores all the locations in <b>locations</b> state in our zustand store. It also sets <b>locationsLoad</b> state to true which controls whether circular loader renders or not.
 - <b>getLocation</b> function retrieves a location from the API with a specific Id and stores it in the <b>location</b> state setting the <b>locationLoad</b> to true to stop the circular loader from rendering.
-- <b>getCharacter</b> function retrives the info about a character with a specific Id from the API and stores it in the <b>character</b> state and sets the <b>characterLoad</b> to true.
+- <b>getCharacter</b> function retrives the info about a character with a specific Id from the API and stores it in the <b>character</b> state.
 
 Using the zustand store, the application stores all tbe states containing major data at one place to use it in different levels of our SPA.  It helps to use locations and character at different levels of the application witout worrying for the flow of those states between the levels.
 
