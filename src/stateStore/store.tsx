@@ -2,13 +2,17 @@ import axios from 'axios';
 import create from 'zustand';
 
 const useStore = create((set) => ({
-  character: { origin: { url: '' }, location: { url: '' }, episode: [''] },
+  character: {
+    id: '', name: '', gender: '', status: '', origin: { url: '' }, location: { url: '' }, episode: [''],
+  },
   getCharacter: async (id:string) => {
     const { data } = await axios.get(`https://rickandmortyapi.com/api/character/${id}`);
     set({ character: data });
   },
 
-  locations: [],
+  locations: [{
+    id: '', name: '', type: '', dimension: '', residents: [], url: '',
+  }],
   locationsLoad: false,
   getLocations: async () => {
     await axios.get('https://rickandmortyapi.com/api/location')
@@ -43,7 +47,9 @@ const useStore = create((set) => ({
       });
   },
 
-  location: {},
+  location: {
+    id: '', name: '', type: '', dimension: '', residents: [], url: '',
+  },
   locationLoad: false,
   getLocation: async (id:string) => {
     const { data } = await axios.get(`https://rickandmortyapi.com/api/location/${id}`);

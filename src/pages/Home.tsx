@@ -35,41 +35,42 @@ function Home() {
 
   return (
     <div className="home">
-      {locationsLoad
-        ? (
-          <div className="homeContent">
-            <h1>Rick and Morty Locations</h1>
-            <div className="filter">
-              <div className="filterParam">
-                <h4>Search:</h4>
-                <TextField
-                  variant="outlined"
-                  label="Search for a location.."
-                  value={searchKey}
-                  onChange={(event) => setSearchKey(event.target.value)}
-                  InputLabelProps={{
-                    sx: {
-                      color: 'white',
-                    },
-                  }}
-                  sx={{
-                    width: 150,
-                    marginLeft: 1,
-                    backgroundColor: '#3c3e44',
-                    input: { color: 'white' },
-                  }}
-                />
-              </div>
-              <div className="filterParam">
-                <h4>Filter by Type:</h4>
-                <DropDown value={type} setValue={setType} options={optionsTypes} label="Types" />
-              </div>
-              <div className="filterParam">
-                <h4>Filter by Dimension:</h4>
-                <DropDown value={dimensions} setValue={setDimensions} options={optionsDim} label="Dimensions" />
-              </div>
-            </div>
-            <div className="locationCards">
+
+      <div className="homeContent">
+        <h1>Rick and Morty Locations</h1>
+        <div className="filter">
+          <div className="filterParam">
+            <h4>Search:</h4>
+            <TextField
+              variant="outlined"
+              label="Search for a location.."
+              value={searchKey}
+              onChange={(event) => setSearchKey(event.target.value)}
+              InputLabelProps={{
+                sx: {
+                  color: 'white',
+                },
+              }}
+              sx={{
+                width: 150,
+                marginLeft: 1,
+                backgroundColor: '#3c3e44',
+                input: { color: 'white' },
+              }}
+            />
+          </div>
+          <div className="filterParam">
+            <h4>Filter by Type:</h4>
+            <DropDown value={type} setValue={setType} options={optionsTypes} label="Types" />
+          </div>
+          <div className="filterParam">
+            <h4>Filter by Dimension:</h4>
+            <DropDown value={dimensions} setValue={setDimensions} options={optionsDim} label="Dimensions" />
+          </div>
+        </div>
+        {locationsLoad
+          ? (
+            <div className="locationCards" data-testid="loadedAfterAPI">
               {filterdResult.map((location:any) => (
                 <Link to={`/location/${location.id}`} style={{ textDecoration: 'none' }}>
                   <div>
@@ -78,13 +79,13 @@ function Home() {
                 </Link>
               ))}
             </div>
-          </div>
-        )
-        : (
-          <div className="locationLoad">
-            <CircularProgress />
-          </div>
-        )}
+          )
+          : (
+            <div className="locationLoad">
+              <CircularProgress />
+            </div>
+          )}
+      </div>
     </div>
   );
 }

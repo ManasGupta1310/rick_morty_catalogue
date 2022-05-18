@@ -41,7 +41,9 @@ function Character() {
                 }}
               >
                 {character.status}
-                <CircleIcon fontSize="small" sx={{ color: character.status === 'Alive' ? '#7CFC00' : '#ff0000', padding: '0px 5px' }} />
+                {character.status === 'Alive' || character.status === 'Dead'
+                  ? <CircleIcon fontSize="small" sx={{ color: character.status === 'Alive' ? '#7CFC00' : '#ff0000', padding: '0px 5px' }} />
+                  : <div />}
               </Typography>
             </div>
             <div className="statsLine">
@@ -64,21 +66,37 @@ function Character() {
               <Typography variant="body1" color="#9e9e9e" className="statHeading">
                 Origin:
               </Typography>
-              <Link to={`/location/${character.origin.url.split('/').slice(-1)}`} style={{ textDecoration: 'none', color: 'white' }}>
-                <Typography variant="body1" className="statValue" sx={{ fontWeight: 600, fontStyle: 'italic' }}>
-                  {character.origin.name}
-                </Typography>
-              </Link>
+              {character.origin.name === 'unknown'
+                ? (
+                  <Typography variant="body1" className="statValue" sx={{ fontWeight: 600, fontStyle: 'italic' }}>
+                    {character.origin.name}
+                  </Typography>
+                )
+                : (
+                  <Link to={`/location/${character.origin.url.split('/').slice(-1)}`} style={{ textDecoration: 'none', color: 'white' }}>
+                    <Typography variant="body1" className="statValue" sx={{ fontWeight: 600, fontStyle: 'italic' }}>
+                      {character.origin.name}
+                    </Typography>
+                  </Link>
+                )}
             </div>
             <div className="statsLine">
               <Typography variant="body1" color="#9e9e9e" className="statHeading">
                 Current Location:
               </Typography>
-              <Link to={`/location/${character.location.url.split('/').slice(-1)}`} style={{ textDecoration: 'none', color: 'white' }}>
-                <Typography variant="body1" className="statValue" sx={{ fontWeight: 600, fontStyle: 'italic' }}>
-                  {character.location.name}
-                </Typography>
-              </Link>
+              {character.location.name === 'unknown'
+                ? (
+                  <Typography variant="body1" className="statValue" sx={{ fontWeight: 600, fontStyle: 'italic' }}>
+                    {character.location.name}
+                  </Typography>
+                )
+                : (
+                  <Link to={`/location/${character.location.url.split('/').slice(-1)}`} style={{ textDecoration: 'none', color: 'white' }}>
+                    <Typography variant="body1" className="statValue" sx={{ fontWeight: 600, fontStyle: 'italic' }}>
+                      {character.location.name}
+                    </Typography>
+                  </Link>
+                )}
             </div>
             <div className="statsLine">
               <Typography variant="body1" color="#9e9e9e" className="statHeading">
